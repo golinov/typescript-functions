@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+
+  app:
+    build:
+      context: docker/ts
+      args:
+        UID: ${DOCKER_UID}
+        GID: ${DOCKER_GID}
+    volumes:
+      - ./app:/var/www
