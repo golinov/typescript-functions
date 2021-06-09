@@ -1,6 +1,6 @@
-let testData = [1, 2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false];
-let testData2 = [1, 2, 1990, 85, 24, 5, 7, 8.1];
-let testData3 = [
+const testData = [1, 2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false]
+const testData2 = [1, 2, 1990, 85, 24, 5, 7, 8.1]
+const testData3 = [
     {
         name: "Vasya",
         email: "vasya@example.com",
@@ -68,7 +68,7 @@ let testData3 = [
         }
     },
 ]
-let testData4 = [
+const testData4 = [
     {
         name: "Vasya",
         email: "vasya@example.com",
@@ -106,4 +106,5 @@ let testData4 = [
         age: 11,
     }]]]]]
 ]
-export {testData, testData2, testData3, testData4}
+
+module.exports = {testData, testData3, testData4, testData2}
