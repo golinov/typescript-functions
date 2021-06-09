@@ -1,7 +1,7 @@
-import {testData} from '../data'
-import {slice} from "./array_slice";
+const dataArraySkipUntil = require('../data')
+const arraySlice = require("./array_slice")
 
-export const array_skip_until = (arr: Array<any>, value: any): Array<any> => {
+function array_skip_until (arr: any[], value: any): any[] {
     let i = 0
     const length = arr.length
     while (i < length) {
@@ -9,8 +9,9 @@ export const array_skip_until = (arr: Array<any>, value: any): Array<any> => {
         i++
         if (length === i) return []
     }
-
-    return slice(arr, i)
+    return arraySlice(arr, i)
 }
 
-console.log(array_skip_until(testData, 23))
+console.log(array_skip_until(dataArraySkipUntil.testData, false))
+
+module.exports = array_skip_until

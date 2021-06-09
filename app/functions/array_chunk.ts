@@ -1,12 +1,14 @@
-import {testData2} from '../data'
-import {slice} from './array_slice'
+const dataArrayChunk = require('../data')
+const arraySlice = require('./array_slice')
 
-export const array_chunk = (arr: Array<any>, count: number): Array<any> => {
-    const result = []
+function array_chunk (arr: any[], count: number): any[] {
+    const result: any[] = []
     for (let i = 0; i < arr.length; i += count) {
-        result.push(slice(arr, i, i + count))
+        result.push(arraySlice(arr, i, i + count))
     }
     return result
 }
 
-console.log(array_chunk(testData2, 2))
+console.log(array_chunk(dataArrayChunk.testData2, 2))
+
+module.exports = array_chunk

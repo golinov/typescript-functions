@@ -1,9 +1,9 @@
-import {testData} from '../data'
+const dataArrayFind = require('../data')
 
-export const array_find = (arr: Array<any>, search: string|RegExp): Array<string|number>|null => {
-    const result: Array<string|number> = []
+function array_find (arr: any[], search: string|RegExp): (string|number)[]|null {
+    const result: (string|number)[] = []
     arr.map(i => {
-        if (i === +search || i === search) result.push(i)
+        if (typeof i === 'string' && i.match(search)) result.push(i)
     })
 
     return result.length
@@ -11,5 +11,7 @@ export const array_find = (arr: Array<any>, search: string|RegExp): Array<string
         : null
 }
 
-console.log(array_find(testData, 'Rafshan'))
+console.log(array_find(dataArrayFind.testData, 'Rafshan'))
+
+module.exports = array_find
 

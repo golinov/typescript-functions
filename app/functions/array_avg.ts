@@ -1,6 +1,6 @@
-import {testData, testData2} from '../data'
+const dataArrayAvg = require('../data')
 
-export const array_avg = (arr: Array<any>, skipNaN = false): number => {
+function array_avg (arr: any[], skipNaN = false): number {
     let result = 0
     let length = skipNaN
         ? 0
@@ -15,4 +15,7 @@ export const array_avg = (arr: Array<any>, skipNaN = false): number => {
     return Math.round(result/length)
 }
 
-console.log(array_avg(testData, true))
+console.log(array_avg(dataArrayAvg.testData, true))
+console.log(array_avg(dataArrayAvg.testData2, true))
+
+module.exports = array_avg

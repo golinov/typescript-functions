@@ -1,5 +1,5 @@
-export const slice = (arr: Array<any>, start: number, end?: number): Array<any> => {
-    const result: Array<any> = []
+function slice (arr: any[], start: number, end?: number): any[] {
+    const result: any[] = []
     if (!end) end = arr.length
     if (end <= start) return result
     while (start < end) {
@@ -8,3 +8,5 @@ export const slice = (arr: Array<any>, start: number, end?: number): Array<any> 
     }
     return result
 }
+
+module.exports = slice
