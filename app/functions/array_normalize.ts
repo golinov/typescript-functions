@@ -10,8 +10,21 @@ type Schema = 'function'
     | 'bool'
     | 'number'
 
+const toArray = (item: any): any[] => {
+    switch (typeof item) {
+        case 'number':
+            return Array.from([item])
+        case 'boolean':
+            return Array.from([item])
+        case 'object':
+            return Array.isArray(item) ? item : Object.entries(item)
+        default:
+            return Array.from(item)
+    }
+}
+
 const arrayHandler = function (this: { transform: boolean }, value: any) {
-    if (this.transform) return Array.from(value)
+    if (this.transform) return toArray(value)
     else if (Array.isArray(value)) return value
 }
 
@@ -64,12 +77,13 @@ const objectHandler = function (this: { transform: boolean, schema: { [name: str
                     v = Boolean(value[field])
                     break
                 case 'function':
+                    //:TODO implement transform to function
                     break
                 case 'number':
                     v = Number(value[field])
                     break
                 case 'array':
-                    v = Array.from(value[field])
+                    v = toArray(value[field])
                     break
             }
         } else if (typeof value[field] === this.schema[field]) v = value[field]
@@ -81,7 +95,7 @@ const objectHandler = function (this: { transform: boolean, schema: { [name: str
 }
 
 const functionHandler = function (this: { transform: boolean }, value: any) {
-    if (this.transform) return 'nice'
+    if (this.transform) return //TODO: implement transform to function
     else if (typeof value === 'function') return value
 }
 
@@ -117,12 +131,12 @@ function array_normalize(arr: any[], schema: Schema | ObjectSchema, transform = 
 
     for (let i = 0; i < arr.length; i++) {
         const handlerResult: any = handler(arr[i])
-        if (handlerResult) result.push(handlerResult)
+        if (handlerResult || typeof handlerResult === 'boolean') result.push(handlerResult)
     }
 
     return result;
 }
 
-console.log(array_normalize(dataArrayNormalize.testData4, {age: 'float'}, true))
+console.log(array_normalize(dataArrayNormalize.testData4, 'array', true))
 
 module.exports = array_normalize
