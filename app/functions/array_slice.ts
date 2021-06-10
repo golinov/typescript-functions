@@ -1,4 +1,4 @@
-function slice (arr: any[], start: number, end?: number): any[] {
+function slice(arr: any[], start: number, end?: number): any[] {
     const result: any[] = []
     if (!end) end = arr.length
     if (end <= start) return result

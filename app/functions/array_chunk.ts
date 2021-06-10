@@ -1,7 +1,7 @@
 const dataArrayChunk = require('../data')
 const arraySlice = require('./array_slice')
 
-function array_chunk (arr: any[], count: number): any[] {
+function array_chunk(arr: any[], count: number): any[] {
     const result: any[] = []
     for (let i = 0; i < arr.length; i += count) {
         result.push(arraySlice(arr, i, i + count))

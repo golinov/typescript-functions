@@ -1,6 +1,6 @@
 const dataArrayAvg = require('../data')
 
-function array_avg (arr: any[], skipNaN = false): number {
+function array_avg(arr: any[], skipNaN = false): number {
     let result = 0
     let length = skipNaN
         ? 0
@@ -12,7 +12,7 @@ function array_avg (arr: any[], skipNaN = false): number {
         }
     })
 
-    return Math.round(result/length)
+    return Math.round(result / length)
 }
 
 console.log(array_avg(dataArrayAvg.testData, true))

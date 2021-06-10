@@ -1,7 +1,7 @@
 const dataArraySkipUntil = require('../data')
 const arraySlice = require("./array_slice")
 
-function array_skip_until (arr: any[], value: any): any[] {
+function array_skip_until(arr: any[], value: any): any[] {
     let i = 0
     const length = arr.length
     while (i < length) {

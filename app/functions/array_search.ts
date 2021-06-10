@@ -1,7 +1,7 @@
 const arrayGet = require('./array_get')
 const dataArraySearch = require('../data')
 
-function array_search (arr: any[], search: string | RegExp, path = ''): { path: string, value: string }[] {
+function array_search(arr: any[], search: string | RegExp, path = ''): { path: string, value: string }[] {
     const result: { path: string, value: string }[] = []
     let arrayByPath: any[] | string = path.length
         ? arrayGet(arr, path)
