@@ -1,4 +1,4 @@
-function array_map(arr: any[], callback: Function): any[] {
+module.exports = function (arr: any[], callback: Function): any[] {
     const result: any[] = []
 
     for (let i = 0; i < arr.length; i++) {
@@ -7,5 +7,3 @@ function array_map(arr: any[], callback: Function): any[] {
 
     return result
 }
-
-module.exports = array_map
