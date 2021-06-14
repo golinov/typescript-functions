@@ -1,5 +1,3 @@
-const dataArrayNormalize = require('../data')
-
 type ObjectSchema = { [name: string]: Schema }
 
 type Schema = 'function'
@@ -55,11 +53,13 @@ const numberHandler = function (this: { transform: boolean }, value: any) {
         const transformed: number = Number(value)
         if (!isNaN(transformed)) return transformed
     }
+
     if (typeof value === 'number') return value
 }
 
 const objectHandler = function (this: { transform: boolean, schema: { [name: string]: Schema } }, value: any) {
     const field = (Object.keys(this.schema))[0]
+
     if (value instanceof Object && field in value) {
         let v: any
         if (this.transform) {
@@ -99,9 +99,9 @@ const functionHandler = function (this: { transform: boolean }, value: any) {
     else if (typeof value === 'function') return value
 }
 
-function array_normalize(arr: any[], schema: Schema | ObjectSchema, transform = false): any[] {
+module.exports = function (arr: any[], schema: Schema | ObjectSchema, transform = false): any[] {
     const result: any[] = []
-    let handler: (value: any) => any = function (value: any): any {}
+    let handler: (value: any) => any = (value: any): any => {}
 
     switch (schema) {
         case 'array':
@@ -136,7 +136,3 @@ function array_normalize(arr: any[], schema: Schema | ObjectSchema, transform = 
 
     return result;
 }
-
-console.log(array_normalize(dataArrayNormalize.testData4, 'array', true))
-
-module.exports = array_normalize

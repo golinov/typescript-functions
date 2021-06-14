@@ -1,5 +1,3 @@
-const dataArrayPluck = require('../data')
-
 const getByPath = (obj: any, path: string): any => {
     const keys: any = path.split('.')
     const object = obj[keys[0]]
@@ -11,7 +9,7 @@ const getByPath = (obj: any, path: string): any => {
     return typeof object !== 'undefined' ? object : null
 }
 
-function array_pluck(arr: {[name: string]: any}[], path: string): any[] {
+module.exports = function (arr: {[name: string]: any}[], path: string): any[] {
     const result: any[] = []
 
     arr.map(item => {
@@ -23,7 +21,3 @@ function array_pluck(arr: {[name: string]: any}[], path: string): any[] {
 
     return result
 }
-
-console.log(array_pluck(dataArrayPluck.testData3, 'skills.php'))
-
-module.exports = array_pluck

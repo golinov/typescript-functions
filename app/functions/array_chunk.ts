@@ -1,14 +1,11 @@
-const dataArrayChunk = require('../data')
-const arraySlice = require('./array_slice')
+const slice = require('./array_slice')
 
-function array_chunk(arr: any[], count: number): any[] {
+module.exports = function (arr: any[], count: number): any[] {
     const result: any[] = []
+
     for (let i = 0; i < arr.length; i += count) {
-        result.push(arraySlice(arr, i, i + count))
+        result.push(slice(arr, i, i + count))
     }
+
     return result
 }
-
-console.log(array_chunk(dataArrayChunk.testData2, 2))
-
-module.exports = array_chunk

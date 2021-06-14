@@ -1,6 +1,4 @@
-const dataArrayCombine = require('../data')
-
-function array_combine(keys: [], values: []): {} {
+module.exports = function (keys: [], values: []): {} {
     const result: any = {}
     const needleTypes = ['number', 'string']
 
@@ -10,7 +8,3 @@ function array_combine(keys: [], values: []): {} {
 
     return result
 }
-
-console.log(array_combine(dataArrayCombine.testData, dataArrayCombine.testData2))
-
-module.exports = array_combine
