@@ -1,3 +1,5 @@
+const get = require('../../functions/array_get')
+
 let count = 0
 
 const objectCompareFunction: (a: {[name: string]: any}, b: {[name: string]: any}) => number = (a, b) => {
@@ -17,16 +19,15 @@ module.exports = function (arr: any[], asc: boolean, column = '', compareFunctio
     for (let i = length - 1; i >= 0; i--) {
         for (let j = 1; j <= i; j++) {
             let result = 0
+            const a = column.length
+                ? get(arr[j - 1], column)
+                : arr[j - 1]
+            const b = column.length
+                ? get(arr[j], column)
+                : arr[j]
 
-            if (compareFunction) {
-                result = column.length
-                    ? compareFunction((arr[j - 1][column]), arr[j][column])
-                    : compareFunction((arr[j - 1]), arr[j])
-            } else {
-                result = column.length
-                    ? (arr[j - 1][column] > arr[j][column] ? -1 : 0)
-                    : (arr[j - 1] > arr[j] ? -1 : 0)
-            }
+            if (compareFunction) result = compareFunction(a, b)
+            else result = a > b ? -1 : 1
 
             if ((asc === true && result < 0) || (asc === false && result > 0)) {
                 const tmp = arr[j - 1]
