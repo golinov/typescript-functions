@@ -155,8 +155,8 @@ Collection.prototype.fill = function (length, value) {
     return new Collection(fill(length, value))
 }
 
-Collection.prototype.sort = function () {
-    sort(this._items, true)
+Collection.prototype.sort = function (callback) {
+    sort(this._items, true, '', callback)
 
     return this
 }
