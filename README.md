@@ -1,4 +1,4 @@
-# typescript-shop
+# typescript-functions
 cp .env.example .env
 
 make up
