@@ -1,7 +1,6 @@
 FROM node:16-alpine3.13
 
-RUN npm i -g ts-node \
-    && yarn
+RUN npm i -g ts-node
 
 #
 # Configure user

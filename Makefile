@@ -1,7 +1,9 @@
 include .env
 
+node_modules:
+	@docker-compose -f ${DOCKER_CONFIG} exec -u node app sh -c "yarn"
 
-up: # create and start containers
+up:  # create and start containers
 	@docker-compose -f ${DOCKER_CONFIG} up -d
 
 down: # stop and destroy containers
@@ -22,5 +24,5 @@ ps: # show started containers and their status
 build: # build all dockerfile, if not built yet
 	@docker-compose -f ${DOCKER_CONFIG} build
 
-connect: # node command line
+connect: node_modules # node command line
 	@docker-compose -f ${DOCKER_CONFIG} exec -u node app sh
