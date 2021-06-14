@@ -1,6 +1,5 @@
-module.exports = function (arr = [], callback: Function): boolean {
+module.exports = function (arr: any[], callback: (element: any, index: number, array: any[]) => boolean): boolean {
     for (let i = 0; i < arr.length; i++) {
-        console.log('nice')
         if (callback(arr[i], i, arr) === false) return false
     }
 
