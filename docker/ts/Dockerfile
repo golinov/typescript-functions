@@ -1,6 +1,7 @@
 FROM node:16-alpine3.13
 
-RUN npm i -g ts-node
+RUN npm i -g ts-node \
+    && yarn
 
 #
 # Configure user
@@ -14,6 +15,8 @@ RUN apk --no-cache add shadow curl \
     && groupmod -g $GID node
 
 USER node
+
+WORKDIR /var/www
 
 #
 # Do not stop container, and handle SIGTERM from docker stop or down

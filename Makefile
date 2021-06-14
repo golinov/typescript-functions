@@ -23,4 +23,4 @@ build: # build all dockerfile, if not built yet
 	@docker-compose -f ${DOCKER_CONFIG} build
 
 connect: # node command line
-	@docker-compose -f ${DOCKER_CONFIG} exec -u node -w /var/www app sh
+	@docker-compose -f ${DOCKER_CONFIG} exec -u node app sh
