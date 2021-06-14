@@ -195,7 +195,4 @@ Collection.prototype.paginate = function (limit) {
     return new Pagination(this, limit)
 }
 
-const t = new Collection([123,123]).paginate(2).first().items
-console.log(t)
-
 module.exports = Collection
