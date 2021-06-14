@@ -7,4 +7,4 @@ function toPagination(...args: any) {
     return new Collection(data).paginate(limit)
 }
 
-console.log(toPagination('asd', 'asd', 'asd', 2))
+console.log(toPagination('asd', 'asd', 'asd', 2).first().toJSON())
