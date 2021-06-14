@@ -60,7 +60,7 @@ const numberHandler = function (this: { transform: boolean }, value: any) {
 const objectHandler = function (this: { transform: boolean, schema: { [name: string]: Schema } }, value: any) {
     const field = (Object.keys(this.schema))[0]
 
-    if (value instanceof Object && field in value) {
+    if (value instanceof Object && !Array.isArray(value) && field in value) {
         let v: any
         if (this.transform) {
             switch (this.schema[field]) {

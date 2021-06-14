@@ -12,7 +12,7 @@ module.exports = function (arr: any[], asc: boolean, column = '', compareFunctio
     const length = arr.length
     if (!length) return []
     if (compareFunction && typeof compareFunction !== 'function') throw 'parameter compareFunction must be function'
-    if (!column.length && arr[0] instanceof Object) compareFunction = objectCompareFunction
+    if (!column.length && arr[0] instanceof Object && !Array.isArray(arr[0])) compareFunction = objectCompareFunction
 
     for (let i = length - 1; i >= 0; i--) {
         for (let j = 1; j <= i; j++) {

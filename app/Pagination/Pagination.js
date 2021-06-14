@@ -94,6 +94,4 @@ Pagination.prototype.current = function () {
     return new Collection(result)
 }
 
-const arr = new Collection([1, 2, 3])
-
 module.exports = Pagination
