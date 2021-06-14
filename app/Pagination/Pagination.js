@@ -1,7 +1,8 @@
 const Collection = require('../Collection/Collection')
 
 function Pagination(collection, limit) {
-    if (!(collection instanceof Collection)) throw 'Argument collection must be instance of Collection'
+    //:TODO finish check
+    // if (!(collection instanceof Collection)) throw 'Argument collection must be instance of Collection'
 
     Object.defineProperty(this, '_cursor', {
         value: 1,
